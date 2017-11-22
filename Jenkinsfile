@@ -42,16 +42,16 @@ podTemplate(label: 'slave', containers: [
             stage('Deploy db in k8s'){
               sh 'kubectl apply -f ./app/db/k8s/deployment.yaml'
               sh 'kubectl rollout status deployment/dbdeployment && sleep 120'
-              def DB_HOST = sh(
-                  script: "kubectl describe services dbservice | grep 'LoadBalancer Ingress:' | cut -d':' -f2 | tr -d ' '",
-                  returnStdout: true
-                  ).trim()
-              sh "echo ${DB_HOST}"
+              DB_HOST = sh(
+              script: "kubectl describe services dbservice | grep 'LoadBalancer Ingress:' | cut -d':' -f2 | tr -d ' '",
+              returnStdout: true
+              ).trim()
+              sh "echo ${env.DB_HOST}"
             }      
           }
           container ('docker') {
             stage('Build app docker image') {
-              sh "echo ${DB_HOST}"
+              sh "echo ${env.DB_HOST}"
               ART_NAME = sh(
               script: "ls ${WORKSPACE}/target | grep jar | grep -v original",
               returnStdout: true
