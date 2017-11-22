@@ -36,8 +36,7 @@ podTemplate(label: 'slave', containers: [
           container ('curl') {
             stage('Configure kubectl tool') {
               sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/linux/amd64/kubectl"
-              sh "chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl && mkdir -p ~/.kube"
-              sh "cp app/info.yaml ~/.kube/config && kubectl cluster-info"
+              sh "chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl && mkdir -p ~/.kube && cp app/info.yaml ~/.kube/config"
             }
             stage('Deploy db in k8s'){
               sh 'kubectl apply -f ./app/db/k8s/deployment.yaml'
@@ -46,12 +45,10 @@ podTemplate(label: 'slave', containers: [
               script: "kubectl describe services dbservice | grep 'LoadBalancer Ingress:' | cut -d':' -f2 | tr -d ' '",
               returnStdout: true
               ).trim()
-              sh "echo ${env.DB_HOST}"
             }      
           }
           container ('docker') {
             stage('Build app docker image') {
-              sh "echo ${env.DB_HOST}"
               ART_NAME = sh(
               script: "ls ${WORKSPACE}/target | grep jar | grep -v original",
               returnStdout: true
@@ -64,8 +61,7 @@ podTemplate(label: 'slave', containers: [
           container ('curl') {
             stage('Configure kubectl tool') {
               sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/linux/amd64/kubectl"
-              sh "chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl && mkdir -p ~/.kube"
-              sh "cp app/info.yaml ~/.kube/config && kubectl cluster-info"
+              sh "chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl && mkdir -p ~/.kube && cp app/info.yaml ~/.kube/config"
             }
             stage('Deploy db in k8s'){
               sh 'kubectl apply -f ./app/app/k8s/deployment.yaml'
