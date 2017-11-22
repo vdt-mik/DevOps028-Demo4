@@ -46,10 +46,12 @@ podTemplate(label: 'slave', containers: [
                   script: "kubectl describe services dbservice | grep 'LoadBalancer Ingress:' | cut -d':' -f2 | tr -d ' '",
                   returnStdout: true
                   ).trim()
+              sh "echo ${DB_HOST}"
             }      
           }
           container ('docker') {
             stage('Build app docker image') {
+              sh "echo ${DB_HOST}"
               ART_NAME = sh(
               script: "ls ${WORKSPACE}/target | grep jar | grep -v original",
               returnStdout: true
