@@ -28,7 +28,7 @@ podTemplate(label: 'slave', containers: [
           }
           container ('docker') {
             stage('Build db docker image') {
-              sh 'docker build -t db:latest --build-arg DB_NAME=${DB_NAME} --build-arg DB_USER=${DB_USER} --build-arg DB_PASS=${DB_PASS} -f app/db/Dockerfile .'
+              sh "docker build -t db:latest --build-arg DB_NAME=${DB_NAME} --build-arg DB_USER=${DB_USER} --build-arg DB_PASS=${DB_PASS} -f app/db/Dockerfile ."
               sh 'docker tag db:latest 127.0.0.1:5000/db:latest'
               sh 'docker push 127.0.0.1:5000/db:latest'
             }
@@ -54,7 +54,7 @@ podTemplate(label: 'slave', containers: [
               script: "ls ${WORKSPACE}/target | grep jar | grep -v original",
               returnStdout: true
               ).trim()
-              sh 'docker build -t samsara:latest --build-arg DB_HOST=${DB_HOST} --build-arg DB_PORT=${DB_PORT} --build-arg DB_NAME=${DB_NAME} --build-arg DB_USER=${DB_USER} --build-arg DB_PASS=${DB_PASS} --build-arg ART_NAME=${ART_NAME} -f app/app/Dockerfile .'
+              sh "docker build -t samsara:latest --build-arg DB_HOST=${DB_HOST} --build-arg DB_PORT=${DB_PORT} --build-arg DB_NAME=${DB_NAME} --build-arg DB_USER=${DB_USER} --build-arg DB_PASS=${DB_PASS} --build-arg ART_NAME=${ART_NAME} -f app/app/Dockerfile ."
               sh 'docker tag samsara:latest 127.0.0.1:5000/samsara:latest'
               sh 'docker push 127.0.0.1:5000/samsara:latest'
             }
