@@ -1,11 +1,8 @@
 podTemplate(label: 'slave', containers: [
-  containerTemplate(
-    image: 'docker', name: 'docker', privileged: true,  workingDir: '/home/jenkins', command: 'cat', ttyEnabled: true),
-  containerTemplate(
-    image: 'maven', name: 'maven', privileged: true,  workingDir: '/home/jenkins', command: 'cat', ttyEnabled: true),
-  containerTemplate(
-    image: 'tutum/curl', name: 'curl', privileged: true,  workingDir: '/home/jenkins', command: 'cat', ttyEnabled: true)
-],
+  containerTemplate(image: 'docker', name: 'docker', privileged: true,  workingDir: '/home/jenkins', command: 'cat', ttyEnabled: true),
+  containerTemplate(image: 'maven', name: 'maven', privileged: true,  workingDir: '/home/jenkins', command: 'cat', ttyEnabled: true),
+  containerTemplate(image: 'tutum/curl', name: 'curl', privileged: true,  workingDir: '/home/jenkins', command: 'cat', ttyEnabled: true)
+  ],
   volumes: [
     hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')
   ]) {
