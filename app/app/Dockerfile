@@ -1,4 +1,4 @@
-FROM 303036157700.dkr.ecr.eu-central-1.amazonaws.com/dep:latest
+FROM 127.0.0.1:5000/dep:latest
 
 ARG DB_HOST
 ARG DB_PORT
