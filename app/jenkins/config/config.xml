@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors/>
+  <version>2.91</version>
+  <numExecutors>2</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:cto</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:dev</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:cto</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:cto</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:dev</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:cto</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:dev</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:cto</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:dev</permission>
+    <permission>hudson.model.Computer.Build:cto</permission>
+    <permission>hudson.model.Computer.Build:dev</permission>
+    <permission>hudson.model.Computer.Configure:cto</permission>
+    <permission>hudson.model.Computer.Configure:dev</permission>
+    <permission>hudson.model.Computer.Connect:cto</permission>
+    <permission>hudson.model.Computer.Connect:dev</permission>
+    <permission>hudson.model.Computer.Create:cto</permission>
+    <permission>hudson.model.Computer.Create:dev</permission>
+    <permission>hudson.model.Computer.Delete:cto</permission>
+    <permission>hudson.model.Computer.Disconnect:cto</permission>
+    <permission>hudson.model.Computer.Disconnect:dev</permission>
+    <permission>hudson.model.Hudson.Administer:cto</permission>
+    <permission>hudson.model.Hudson.Read:cto</permission>
+    <permission>hudson.model.Hudson.Read:dev</permission>
+    <permission>hudson.model.Item.Build:cto</permission>
+    <permission>hudson.model.Item.Build:dev</permission>
+    <permission>hudson.model.Item.Cancel:cto</permission>
+    <permission>hudson.model.Item.Cancel:dev</permission>
+    <permission>hudson.model.Item.Configure:cto</permission>
+    <permission>hudson.model.Item.Configure:dev</permission>
+    <permission>hudson.model.Item.Create:cto</permission>
+    <permission>hudson.model.Item.Create:dev</permission>
+    <permission>hudson.model.Item.Delete:cto</permission>
+    <permission>hudson.model.Item.Discover:cto</permission>
+    <permission>hudson.model.Item.Discover:dev</permission>
+    <permission>hudson.model.Item.Move:cto</permission>
+    <permission>hudson.model.Item.Move:dev</permission>
+    <permission>hudson.model.Item.Read:cto</permission>
+    <permission>hudson.model.Item.Read:dev</permission>
+    <permission>hudson.model.Item.Workspace:cto</permission>
+    <permission>hudson.model.Item.Workspace:dev</permission>
+    <permission>hudson.model.Run.Delete:cto</permission>
+    <permission>hudson.model.Run.Replay:cto</permission>
+    <permission>hudson.model.Run.Replay:dev</permission>
+    <permission>hudson.model.Run.Update:cto</permission>
+    <permission>hudson.model.Run.Update:dev</permission>
+    <permission>hudson.model.View.Configure:cto</permission>
+    <permission>hudson.model.View.Configure:dev</permission>
+    <permission>hudson.model.View.Create:cto</permission>
+    <permission>hudson.model.View.Create:dev</permission>
+    <permission>hudson.model.View.Delete:cto</permission>
+    <permission>hudson.model.View.Read:cto</permission>
+    <permission>hudson.model.View.Read:dev</permission>
+    <permission>hudson.scm.SCM.Tag:cto</permission>
+    <permission>hudson.scm.SCM.Tag:dev</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>true</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
+  <disableRememberMe>false</disableRememberMe>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
+  <jdks>
+    <jdk>
+      <name>jdk8</name>
+      <home></home>
+      <properties>
+        <hudson.tools.InstallSourceProperty>
+          <installers>
+            <hudson.tools.JDKInstaller>
+              <id>jdk-8u144-oth-JPR</id>
+              <acceptLicense>true</acceptLicense>
+            </hudson.tools.JDKInstaller>
+          </installers>
+        </hudson.tools.InstallSourceProperty>
+      </properties>
+    </jdk>
+  </jdks>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds/>
+  <quietPeriod>5</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>all</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+  </views>
+  <primaryView>all</primaryView>
+  <slaveAgentPort>-1</slaveAgentPort>
+  <disabledAgentProtocols>
+    <string>JNLP-connect</string>
+    <string>JNLP2-connect</string>
+  </disabledAgentProtocols>
+  <label></label>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
+  </crumbIssuer>
+  <nodeProperties/>
+  <globalNodeProperties/>
+</hudson>
