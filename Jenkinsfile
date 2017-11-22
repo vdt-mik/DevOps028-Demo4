@@ -29,8 +29,6 @@ podTemplate(label: 'slave', containers: [
           container ('docker') {
             stage('Build db docker image') {
               def dbImage = docker.build("127.0.0.1:5000/db:latest","--build-arg DB_NAME=${DB_NAME} --build-arg DB_USER=${DB_USER} --build-arg DB_PASS=${DB_PASS} -f app/db/Dockerfile .")
-            }
-            stage('Push db docker image') {
               sh 'docker push 127.0.0.1:5000/db:latest'
             }
           }
