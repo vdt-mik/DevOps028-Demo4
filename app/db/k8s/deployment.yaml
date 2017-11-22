@@ -31,7 +31,7 @@ spec:
         service: dbservice
     spec:
       containers:
-      - image: 303036157700.dkr.ecr.eu-central-1.amazonaws.com/db:latest
+      - image: 127.0.0.1:5000/db:latest
         name: db
         ports:
           - protocol: TCP
