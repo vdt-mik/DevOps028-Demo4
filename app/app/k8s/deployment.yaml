@@ -20,7 +20,7 @@ metadata:
   labels:
     service: appservice
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: appservice
