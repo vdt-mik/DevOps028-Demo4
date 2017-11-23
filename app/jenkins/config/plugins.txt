@@ -85,3 +85,4 @@ git-client
 bouncycastle-api:2.16.2
 github
 pipeline-model-extensions
+datadog
